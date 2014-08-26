@@ -1,0 +1,28 @@
+div(ng-controller="FolderCreateCtrl")
+
+  header
+    div.ui.menu.inverted.red
+      div.container
+        a.header.item(href="/#/browse") PasteStore
+
+  main
+    div.container
+      div.folder
+        div.file.ui.form(ng-repeat="file in files")
+          div.ui.top.attached.header.segment
+            div.ui.text.menu
+              div.header.item
+                div.ui.input
+                  input(placeholder="Name this file...", type="text", ng-model="file.name")
+
+              div.right.item
+                a.ui.basic.button(ng-click="deleteFile(file)") Delete
+          div.ui.bottom.attached.segment(style="margin-bottom: 15px;")
+            div.field
+              textarea(ng-model="file.content")
+
+        div.ui.text.menu
+          div.item
+            a.ui.basic.button(ng-click="addFile()") Add file
+          div.right.item
+            a.ui.basic.button(ng-click="createFolder()") Create folder

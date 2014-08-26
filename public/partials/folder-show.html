@@ -1,0 +1,32 @@
+
+<div ng-controller="FolderShowCtrl">
+  <header>
+    <div class="ui menu inverted red">
+      <div class="container"><a href="/#/browse" class="header item">PasteStore</a>
+        <div class="right menu"><a href="/#/browse/{{folder.slug}}/edit" class="item"><i class="icon pencil"></i></a><a ng-click="deleteFolder(folder)" class="item"><i class="icon delete"></i></a></div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="folder">
+        <h3 class="header"><a href="/#/browse">browse</a> / <a href="/#/browse/{{folder.slug}}">folder: {{folder.slug}}</a></h3>
+        <div ng-switch="folder.createdAt == folder.updatedAt">
+          <p ng-switch-when="true" class="subheader">Created <span am-time-ago="folder.createdAt"></span></p>
+          <p ng-switch-when="false" class="subheader">Last active <span am-time-ago="folder.updatedAt"></span></p>
+        </div>
+        <div ng-repeat="file in folder.files" class="file">
+          <div class="ui top attached header segment">
+            <div class="ui text menu">
+              <div class="header item">{{file.name}}</div>
+              <div class="right item"><a href="/raw/{{folder.slug}}/{{file.name}}" class="ui basic button">Raw</a></div>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px;" class="ui bottom attached segment">
+            <pre>{{file.content}}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

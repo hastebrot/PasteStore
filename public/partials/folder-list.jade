@@ -1,0 +1,28 @@
+div(ng-controller="FolderListCtrl")
+
+  header
+    div.ui.menu.inverted.red
+      div.container
+        a.header.item(href="/#/browse") PasteStore
+        a.item(href="/components/swagger-ui/dist/index.html"): i.icon.book
+        div.right.menu
+          a.item(href="/#/browse/create"): i.icon.add
+
+  main
+    div.container
+      div.folder(ng-repeat="folder in folders")
+        h3.header
+          | browse
+          | #{" / "}
+          a(href="/#/browse/{{folder.slug}}") folder: {{folder.slug}}
+        div(ng-switch="folder.createdAt == folder.updatedAt")
+          p.subheader(ng-switch-when="true")
+            | Created <span am-time-ago="folder.createdAt"></span>
+            | &mdash; {{folder.files.length}} files
+          p.subheader(ng-switch-when="false")
+            | Last active <span am-time-ago="folder.updatedAt"></span>
+            | &mdash; {{folder.files.length}} files
+        div.file(ng-repeat="file in [folder.files[0]]")
+          div.ui.segment(style="margin-bottom: 15px;")
+            pre.
+              {{file.content}}

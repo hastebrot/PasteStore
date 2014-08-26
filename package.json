@@ -1,0 +1,26 @@
+{
+  "name": "PasteStore",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "baucis": "^1.0.0-candidate.10",
+    "baucis-swagger": "git://github.com/DavidBoike/baucis-swagger",
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "cuid": "^1.2.4",
+    "debug": "~0.7.4",
+    "express": "~4.8.0",
+    "genny": "^0.5.5",
+    "hashids": "^0.3.3",
+    "jade": "~1.5.0",
+    "less-middleware": "1.0.x",
+    "lodash": "^2.4.1",
+    "mongoose": "^3.8.14",
+    "morgan": "~1.0.0",
+    "static-favicon": "~1.0.0",
+    "through": "^2.3.4"
+  }
+}

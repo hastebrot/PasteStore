@@ -1,0 +1,35 @@
+
+<div ng-controller="FolderEditCtrl">
+  <header>
+    <div class="ui menu inverted red">
+      <div class="container"><a href="/#/browse" class="header item">PasteStore</a></div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="folder">
+        <div ng-repeat="file in files" class="file ui form">
+          <div class="ui top attached header segment">
+            <div class="ui text menu">
+              <div class="header item">
+                <div class="ui input">
+                  <input placeholder="Name this file..." type="text" ng-model="file.name"/>
+                </div>
+              </div>
+              <div class="right item"><a ng-click="deleteFile(file)" class="ui basic button">Delete</a></div>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px;" class="ui bottom attached segment">
+            <div class="field">
+              <textarea ng-model="file.content"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="ui text menu">
+          <div class="item"><a ng-click="addFile()" class="ui basic button">Add file</a></div>
+          <div class="right item"><a ng-click="saveFolder()" class="ui basic button">Save folder</a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,35 @@
+
+<div ng-controller="FolderListCtrl">
+  <header>
+    <div class="ui menu inverted red">
+      <div class="container"><a href="/#/browse" class="header item">PasteStore</a><a href="/components/swagger-ui/dist/index.html" class="item"><i class="icon book"></i></a>
+        <div class="right menu"><a href="/#/browse/create" class="item"><i class="icon add"></i></a></div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div ng-repeat="folder in folders" class="folder">
+        <h3 class="header">
+          browse
+           / <a href="/#/browse/{{folder.slug}}">folder: {{folder.slug}}</a>
+        </h3>
+        <div ng-switch="folder.createdAt == folder.updatedAt">
+          <p ng-switch-when="true" class="subheader">
+            Created <span am-time-ago="folder.createdAt"></span>
+            &mdash; {{folder.files.length}} files
+          </p>
+          <p ng-switch-when="false" class="subheader">
+            Last active <span am-time-ago="folder.updatedAt"></span>
+            &mdash; {{folder.files.length}} files
+          </p>
+        </div>
+        <div ng-repeat="file in [folder.files[0]]" class="file">
+          <div style="margin-bottom: 15px;" class="ui segment">
+            <pre>{{file.content}}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

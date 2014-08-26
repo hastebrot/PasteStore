@@ -1,0 +1,29 @@
+
+div(ng-controller="FolderShowCtrl")
+  header
+    div.ui.menu.inverted.red
+      div.container
+        a.header.item(href="/#/browse") PasteStore
+        div.right.menu
+          a.item(href="/#/browse/{{folder.slug}}/edit"): i.icon.pencil
+          a.item(ng-click="deleteFolder(folder)"): i.icon.delete
+
+  main
+    div.container
+      div.folder
+        h3.header
+          a(href="/#/browse") browse
+          | #{" / "}
+          a(href="/#/browse/{{folder.slug}}") folder: {{folder.slug}}
+        div(ng-switch="folder.createdAt == folder.updatedAt")
+          p.subheader(ng-switch-when="true") Created <span am-time-ago="folder.createdAt"></span>
+          p.subheader(ng-switch-when="false") Last active <span am-time-ago="folder.updatedAt"></span>
+        div.file(ng-repeat="file in folder.files")
+          div.ui.top.attached.header.segment
+            div.ui.text.menu
+              div.header.item {{file.name}}
+              div.right.item
+                a.ui.basic.button(href="/raw/{{folder.slug}}/{{file.name}}") Raw
+          div.ui.bottom.attached.segment(style="margin-bottom: 15px;")
+            pre.
+              {{file.content}}

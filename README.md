@@ -1,4 +1,4 @@
-# PasteStore
+# PasteStore [![GitHub version](https://badge.fury.io/gh/hastebrot%2FPasteStore.png)](http://badge.fury.io/gh/hastebrot%2FPasteStore)
 
 :warning: *This software is currently in alpha phase, incomplete and not yet ready for production.*
 

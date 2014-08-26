@@ -1,4 +1,4 @@
-# PasteStore [![GitHub version](https://badge.fury.io/gh/hastebrot%2FPasteStore.png)](http://badge.fury.io/gh/hastebrot%2FPasteStore)
+# PasteStore ![Version](http://img.shields.io/badge/version-v0.0.1-brightgreen.png) ![License](http://img.shields.io/badge/license-MIT-red.png)
 
 :warning: *This software is currently in alpha phase, incomplete and not yet ready for production.*
 
